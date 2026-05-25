@@ -1,0 +1,39 @@
+{
+  "id": "stowe-mountain-resort",
+  "name": "Stowe Mountain Resort",
+  "state": "VT",
+  "country": "US",
+  "status": "operating",
+  "summary": "Historical archive seed record for Stowe Mountain Resort, including Mt. Mansfield and Spruce Peak development, classic Vermont ski history, and extensive trail map evolution.",
+  "coordinates": {
+    "lat": 44.5297,
+    "lon": -72.7810
+  },
+  "timeline": [
+    {
+      "year": 1958,
+      "event": "Early trail-map references identified for Stowe.",
+      "source": "https://skimap.org/skiareas/view/212"
+    },
+    {
+      "year": 2025,
+      "event": "Modern operational trail-map reference identified.",
+      "source": "https://skimap.org/skiareas/view/212"
+    }
+  ],
+  "map_references": [
+    {
+      "year_range": "1958-2025",
+      "title": "Stowe trail map collection",
+      "url": "https://skimap.org/skiareas/view/212",
+      "rights_status": "link-only pending review"
+    }
+  ],
+  "research_gaps": [
+    "Mt. Mansfield expansion chronology",
+    "Spruce Peak integration history",
+    "Lift modernization timeline",
+    "Ownership evolution",
+    "Historic skier visitation data"
+  ]
+}
