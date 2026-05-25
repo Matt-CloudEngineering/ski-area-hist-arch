@@ -1,0 +1,30 @@
+{
+  "seed_sources": [
+    {
+      "name": "Skimap.org",
+      "url": "https://skimap.org/",
+      "use": "Historical trail map references and metadata"
+    },
+    {
+      "name": "NewEnglandSkiHistory.com",
+      "url": "https://www.newenglandskihistory.com/",
+      "use": "Historical timelines, lift history, and ski area evolution"
+    },
+    {
+      "name": "NELSAP",
+      "url": "https://www.nelsap.org/",
+      "use": "Lost ski area historical archive"
+    },
+    {
+      "name": "OpenSkiMap",
+      "url": "https://openskimap.org/",
+      "use": "Modern geospatial trail/lift context"
+    }
+  ],
+  "collection_policy": {
+    "respect_robots_txt": true,
+    "download_images_by_default": false,
+    "manual_review_required_for_republication": true,
+    "crawl_delay_seconds": 2
+  }
+}
