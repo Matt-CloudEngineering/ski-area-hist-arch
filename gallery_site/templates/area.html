@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ area.name }} | Ski Area Historical Archive</title>
+  <style>
+    body { margin:0; font-family:Inter,Arial,sans-serif; background:#eef3f7; color:#12202d; }
+    header { background:linear-gradient(180deg,#0d1c2e 0%,#132a43 100%); color:white; padding:50px 8vw; }
+    header a { color:#d8eaff; text-decoration:none; font-weight:600; }
+    header h1 { margin:18px 0 8px; font-size:3rem; }
+    main { padding:36px 8vw; }
+    .panel { background:white; border-radius:20px; padding:26px; box-shadow:0 10px 28px rgba(0,0,0,.08); margin-bottom:24px; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+    .stat { background:#f4f7fa; border-radius:12px; padding:14px; }
+    .carousel { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding:8px 2px 18px; }
+    .slide { min-width:min(520px,86vw); scroll-snap-align:start; background:#f7fafc; border-radius:16px; overflow:hidden; border:1px solid #dbe5ec; }
+    .slide img { width:100%; height:320px; object-fit:cover; display:block; background:#dbe5ec; }
+    .slide-body { padding:16px; }
+    .badge { display:inline-block; background:#e5f0ff; color:#12457c; border-radius:999px; padding:5px 10px; font-size:.82rem; font-weight:700; margin-bottom:8px; }
+    .timeline li { margin:12px 0; }
+    .source-link { color:#0d4ea6; font-weight:600; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html">← Back to Area Archives</a>
+  <h1>{{ area.name }}</h1>
+  <p>{{ area.state }}, {{ area.country }} · {{ area.status }}</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Current Snapshot</h2>
+    <div class="stats">
+      <div class="stat"><strong>Ownership</strong><br>{{ area.ownership_model or 'Research Pending' }}</div>
+      <div class="stat"><strong>Vertical</strong><br>{{ area.vertical_feet or 'Unknown' }}</div>
+      <div class="stat"><strong>Skiable Acres</strong><br>{{ area.skiable_acres or 'Unknown' }}</div>
+      <div class="stat"><strong>Trail Maps</strong><br>{{ area.map_references|length }}</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Historical Map Gallery</h2>
+    {% if area.map_references %}
+    <div class="carousel">
+      {% for map in area.map_references %}
+      <article class="slide">
+        {% if map.embed_image_url %}
+        <img src="{{ map.embed_image_url }}" alt="{{ map.title }}">
+        {% endif %}
+        <div class="slide-body">
+          <span class="badge">{{ map.year_range }}</span>
+          <h3>{{ map.title }}</h3>
+          <p>Rights status: {{ map.rights_status or 'pending review' }}</p>
+          <p><a class="source-link" href="{{ map.url }}" target="_blank">Open original source →</a></p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No map references have been added yet.</p>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>Historical Timeline</h2>
+    <ol class="timeline">
+      {% for item in area.timeline %}
+      <li><strong>{{ item.year }}</strong> — {{ item.event }} {% if item.source and item.source != 'manual research needed' %}<a href="{{ item.source }}" target="_blank">source</a>{% endif %}</li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="panel">
+    <h2>Research Gaps</h2>
+    <ul>
+      {% for gap in area.research_gaps %}<li>{{ gap }}</li>{% endfor %}
+    </ul>
+  </section>
+</main>
+</body>
+</html>
