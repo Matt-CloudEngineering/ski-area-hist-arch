@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ski Area Historical Archive</title>
+</head>
+<body>
+  <h1>Ski Area Historical Archive</h1>
+  <p>Historical ski area timelines, maps, statistics, and evolution.</p>
+
+  <ul>
+  {% for area in areas %}
+    <li>
+      <h2>{{ area.name }}</h2>
+      <p>{{ area.state }}, {{ area.country }}</p>
+      <p>{{ area.summary }}</p>
+    </li>
+  {% endfor %}
+  </ul>
+</body>
+</html>
