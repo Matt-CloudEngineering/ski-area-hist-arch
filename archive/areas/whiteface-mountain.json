@@ -5,6 +5,11 @@
   "country": "US",
   "status": "operating",
   "summary": "Historical archive seed record for Whiteface Mountain.",
+  "official_site": {
+    "url": "https://whiteface.com/",
+    "label": "Official Whiteface site",
+    "icon": "⛷️"
+  },
   "coordinates": {
     "lat": 44.3539,
     "lon": -73.8602
