@@ -1,0 +1,39 @@
+{
+  "id": "belleayre-mountain",
+  "name": "Belleayre Mountain",
+  "state": "NY",
+  "country": "US",
+  "status": "operating",
+  "summary": "Historical archive seed record for Belleayre Mountain in the Catskills, focused on state ski-area development, ORDA-era management, trail map evolution, and lift modernization.",
+  "coordinates": {
+    "lat": 42.1429,
+    "lon": -74.5021
+  },
+  "timeline": [
+    {
+      "year": 1969,
+      "event": "Early trail-map reference identified for Belleayre Mountain.",
+      "source": "https://skimap.org/skiareas/view/324"
+    },
+    {
+      "year": 2024,
+      "event": "Modern trail-map reference identified for Belleayre Mountain.",
+      "source": "https://skimap.org/skiareas/view/324"
+    }
+  ],
+  "map_references": [
+    {
+      "year_range": "1969-2024",
+      "title": "Belleayre Mountain map collection",
+      "url": "https://skimap.org/skiareas/view/324",
+      "rights_status": "link-only pending review"
+    }
+  ],
+  "research_gaps": [
+    "Opening-era history",
+    "ORDA transition timeline",
+    "Lift modernization chronology",
+    "Trail count and skiable acreage evolution",
+    "Snowmaking expansion history"
+  ]
+}
