@@ -1,0 +1,34 @@
+{
+  "id": "killington-resort",
+  "name": "Killington Resort",
+  "state": "VT",
+  "country": "US",
+  "status": "operating",
+  "summary": "Historical archive seed record for Killington Resort, documenting one of the largest and most aggressively expanded ski areas in the eastern United States.",
+  "coordinates": {
+    "lat": 43.6266,
+    "lon": -72.7965
+  },
+  "timeline": [
+    {
+      "year": "1950s",
+      "event": "Early development and trail expansion period requiring further detailed sourcing.",
+      "source": "manual research needed"
+    }
+  ],
+  "map_references": [
+    {
+      "year_range": "multiple decades",
+      "title": "Killington map references",
+      "url": "https://skimap.org/",
+      "rights_status": "link-only pending review"
+    }
+  ],
+  "research_gaps": [
+    "Peak-to-peak expansion timeline",
+    "Skyeship and interconnect history",
+    "Lift replacement chronology",
+    "Historic acreage growth",
+    "Ticket pricing history"
+  ]
+}
