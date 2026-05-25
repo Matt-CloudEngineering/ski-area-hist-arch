@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Deploying Ski Area Historical Archive"
+echo "Deploying Fantasy Shred"
 
 cd /home/forge/fantasyshred.com
 
@@ -13,8 +13,12 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 python -m gallery_site.build_site
+python -m landing.build_landing
 
 rm -rf public/*
-cp -R gallery_site/output/* public/
+mkdir -p public/area-archives
 
-echo "Deployment complete. Static site published to public/."
+cp -R landing/output/* public/
+cp -R gallery_site/output/* public/area-archives/
+
+echo "Deployment complete."
