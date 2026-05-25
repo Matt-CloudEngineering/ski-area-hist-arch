@@ -1,21 +1,74 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ski Area Historical Archive</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #eef3f7;
+      color: #12202d;
+    }
+    header {
+      background: linear-gradient(180deg, #0d1c2e 0%, #132a43 100%);
+      color: white;
+      padding: 60px 8vw;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    header p {
+      max-width: 760px;
+      line-height: 1.7;
+      color: #d6dfeb;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 40px 8vw;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.08);
+      text-decoration: none;
+      color: inherit;
+      transition: transform .15s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+    }
+    .meta {
+      color: #526577;
+      font-size: .95rem;
+      margin-bottom: 12px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Ski Area Historical Archive</h1>
-  <p>Historical ski area timelines, maps, statistics, and evolution.</p>
+  <header>
+    <h1>Ski Area Historical Archive</h1>
+    <p>
+      A developing archive documenting the evolution of ski areas across North America,
+      including trail maps, lift systems, mountain statistics, ownership history,
+      expansion timelines, and lost ski areas.
+    </p>
+  </header>
 
-  <ul>
-  {% for area in areas %}
-    <li>
+  <main class="grid">
+    {% for area in areas %}
+    <a class="card" href="{{ area.id }}.html">
+      <div class="meta">{{ area.state }}, {{ area.country }} · {{ area.status }}</div>
       <h2>{{ area.name }}</h2>
-      <p>{{ area.state }}, {{ area.country }}</p>
       <p>{{ area.summary }}</p>
-    </li>
-  {% endfor %}
-  </ul>
+      <p><strong>{{ area.timeline|length }}</strong> timeline events · <strong>{{ area.map_references|length }}</strong> map references</p>
+    </a>
+    {% endfor %}
+  </main>
 </body>
 </html>
