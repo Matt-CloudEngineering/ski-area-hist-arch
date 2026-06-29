@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: ski_archive
+      POSTGRES_USER: ski_archive
+      POSTGRES_PASSWORD: ski_archive
+    ports:
+      - "5432:5432"
+    volumes:
+      - ski_archive_pgdata:/var/lib/postgresql/data
+      - ./db/schema_v2.sql:/docker-entrypoint-initdb.d/001_schema_v2.sql:ro
+
+  api:
+    image: python:3.12-slim
+    working_dir: /app
+    command: sh -c "pip install -r apps/api/requirements.txt && uvicorn apps.api.main:app --host 0.0.0.0 --port 8000 --reload"
+    environment:
+      DATABASE_URL: postgresql+psycopg://ski_archive:ski_archive@postgres:5432/ski_archive
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+
+volumes:
+  ski_archive_pgdata:
