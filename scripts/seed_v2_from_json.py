@@ -4,10 +4,10 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.append(str(ROOT / "apps" / "api"))
+sys.path.append(str(ROOT))
 
-from database import Base, SessionLocal, engine  # noqa: E402
-from models import HistoricalAsset, HistoricalSnapshot, Resort  # noqa: E402
+from apps.api.database import Base, SessionLocal, engine  # noqa: E402
+from apps.api.models import HistoricalAsset, HistoricalSnapshot, Resort  # noqa: E402
 
 AREAS_DIR = ROOT / "archive" / "areas"
 
