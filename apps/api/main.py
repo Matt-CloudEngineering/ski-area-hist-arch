@@ -2,9 +2,9 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from database import Base, engine, get_db
-from models import Collection, HistoricalAsset, HistoricalSnapshot, Institution, Resort
-from schemas import CollectionOut, HistoricalAssetOut, HistoricalSnapshotOut, InstitutionOut, ResortOut
+from .database import Base, engine, get_db
+from .models import Collection, HistoricalAsset, HistoricalSnapshot, Institution, Resort
+from .schemas import CollectionOut, HistoricalAssetOut, HistoricalSnapshotOut, InstitutionOut, ResortOut
 
 app = FastAPI(
     title="Fantasy Shred Ski Area Historical Archive API",
