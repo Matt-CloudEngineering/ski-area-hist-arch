@@ -1,0 +1,102 @@
+{
+  "last_reviewed": "2026-06-29",
+  "source_categories": [
+    {
+      "id": "trail-map-archives",
+      "name": "Trail Map Archives",
+      "priority": 1,
+      "examples": [
+        "Skimap.org",
+        "Resort-hosted historical trail map pages",
+        "Collector-submitted map scans"
+      ],
+      "archive_use": "Core historical evidence for lift layout, trail networks, branding, terrain expansion, and dated resort snapshots."
+    },
+    {
+      "id": "historical-aerial-imagery",
+      "name": "Historical Aerial Imagery",
+      "priority": 2,
+      "examples": [
+        "USGS historical aerials",
+        "state GIS portals",
+        "county aerial collections",
+        "university map libraries"
+      ],
+      "archive_use": "Primary geospatial evidence for terrain clearing, lift alignments, base area development, parking expansion, and lost-area remains."
+    },
+    {
+      "id": "ski-museums",
+      "name": "Ski Museums",
+      "priority": 3,
+      "examples": [
+        "New England Ski Museum",
+        "Vermont Ski and Snowboard Museum",
+        "Maine Ski and Snowboard Museum",
+        "Colorado Snowsports Museum"
+      ],
+      "archive_use": "Institutional collections, photographs, artifacts, oral histories, and provenance-rich archival material."
+    },
+    {
+      "id": "university-archives",
+      "name": "University Archives",
+      "priority": 4,
+      "examples": [
+        "University of Utah Ski Archives",
+        "regional special collections",
+        "map libraries"
+      ],
+      "archive_use": "Finding aids, personal papers, club records, historic photographs, and regional skiing history."
+    },
+    {
+      "id": "regional-historical-archives",
+      "name": "Regional Historical Archives",
+      "priority": 5,
+      "examples": [
+        "local historical societies",
+        "county archives",
+        "tourism archives",
+        "town libraries"
+      ],
+      "archive_use": "Small-area documentation, local newspaper clippings, brochures, postcards, and community memory."
+    },
+    {
+      "id": "lost-area-research",
+      "name": "Lost Ski Area Research",
+      "priority": 6,
+      "examples": [
+        "NELSAP",
+        "regional lost ski area projects",
+        "field visit reports"
+      ],
+      "archive_use": "Closure dates, remnants, ownership clues, surface lift histories, and defunct-area geographic evidence."
+    },
+    {
+      "id": "digital-repositories",
+      "name": "Digital Repositories",
+      "priority": 7,
+      "examples": [
+        "Digital Public Library of America",
+        "Internet Archive",
+        "state digital archives",
+        "museum aggregation platforms"
+      ],
+      "archive_use": "Cross-institutional discovery of digitized brochures, maps, photographs, film, and publications."
+    }
+  ],
+  "known_gaps": [
+    "Historical aerial imagery is weak or missing for most resorts.",
+    "Ownership and operator history is incomplete.",
+    "Lift manufacturer, installation, and removal data is sparse.",
+    "Historical boundaries and GIS-ready geometries are mostly absent.",
+    "Oral histories need first-class support.",
+    "Collection-level provenance is not yet consistently captured.",
+    "Rights status and digitization status must be tracked per asset."
+  ],
+  "site_refinements": [
+    "Promote Collections and Museums into top-level exploration paths.",
+    "Present Historical Snapshot cards on each resort page.",
+    "Show coverage status for trail maps, aerials, lifts, ownership, oral histories, and GIS readiness.",
+    "Keep trail maps as the lead media experience until aerial coverage improves.",
+    "Prepare for synchronized historical map and aerial comparison views."
+  ]
+}
