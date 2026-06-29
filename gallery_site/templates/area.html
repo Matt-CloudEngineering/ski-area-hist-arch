@@ -20,6 +20,9 @@
     .badge { display:inline-block; background:#e5f0ff; color:#12457c; border-radius:999px; padding:5px 10px; font-size:.82rem; font-weight:700; margin-bottom:8px; }
     .timeline li { margin:12px 0; }
     .source-link { color:#0d4ea6; font-weight:600; }
+    .snapshot-grid,.coverage-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+    .snapshot,.coverage-item { background:#f7fafc; border:1px solid #dbe5ec; border-radius:14px; padding:16px; }
+    .muted { color:#526577; }
   </style>
 </head>
 <body>
@@ -37,6 +40,37 @@
       <div class="stat"><strong>Skiable Acres</strong><br>{{ area.skiable_acres or 'Unknown' }}</div>
       <div class="stat"><strong>Trail Maps</strong><br>{{ area.map_references|length }}</div>
     </div>
+  </section>
+
+  <section class="panel">
+    <h2>Historical Snapshot Cards</h2>
+    {% if area.historical_snapshots %}
+    <div class="snapshot-grid">
+      {% for snapshot in area.historical_snapshots %}
+      <article class="snapshot">
+        <span class="badge">{{ snapshot.year }}</span>
+        <h3>{{ snapshot.label or area.name ~ ' - ' ~ snapshot.year }}</h3>
+        <p class="muted">{{ snapshot.summary or 'Snapshot summary pending source enrichment.' }}</p>
+        <p><strong>Maps:</strong> {{ snapshot.map_count or 0 }} · <strong>Aerials:</strong> {{ snapshot.aerial_count or 0 }} · <strong>Confidence:</strong> {{ snapshot.confidence_score or 'pending' }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No year-specific historical snapshots have been added yet.</p>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>Coverage Status</h2>
+    {% if area.coverage %}
+    <div class="coverage-grid">
+      {% for key, value in area.coverage.items() %}
+      <div class="coverage-item"><strong>{{ key|replace('_', ' ')|title }}</strong><br>{{ value }}</div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>Coverage metadata has not been added yet.</p>
+    {% endif %}
   </section>
 
   <section class="panel">
