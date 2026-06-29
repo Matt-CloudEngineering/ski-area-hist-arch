@@ -2,6 +2,26 @@
 
 A long-term historical archive and research platform focused on ski areas over the past 100+ years.
 
+## Version 2.0 Status
+
+Version 2.0 has begun.
+
+The repository now contains an additive application scaffold for:
+
+```text
+PostgreSQL + PostGIS
+        ↓
+FastAPI Archive API
+        ↓
+Public Gallery + Map Explorer
+        ↓
+Admin Research Portal
+        ↓
+AI Metadata / OCR / GIS Extraction
+```
+
+The existing static gallery remains in place while the v2 API and database are introduced safely.
+
 ## Current Focus
 
 The archive is now organized around historical evidence rather than simple resort profiles.
@@ -22,6 +42,31 @@ Resort
 
 This supports museums, university archives, private collections, trail maps, aerial imagery, lift history, oral histories, and year-specific resort snapshots.
 
+## Local v2 Run
+
+```bash
+docker compose up
+```
+
+Then seed existing JSON records:
+
+```bash
+docker compose exec api python scripts/seed_v2_from_json.py
+```
+
+API documentation will be available at:
+
+```text
+http://localhost:8000/docs
+```
+
+See:
+
+- `docs/v2-runbook.md`
+- `docs/v2-implementation-plan.md`
+- `docs/archive-schema-v2.md`
+- `db/schema_v2.sql`
+
 ## Goals
 
 - Collect historical ski area information
@@ -31,12 +76,12 @@ This supports museums, university archives, private collections, trail maps, aer
 - Generate browser-based galleries and map comparisons
 - Support AI-assisted metadata enrichment, OCR extraction, and future GIS feature extraction
 
-## Initial Architecture
+## Architecture
 
 ```text
 Collectors / Agents
     ↓
-Normalized JSON + SQLite
+Normalized JSON + Archive Database
     ↓
 Institutions / Collections / Assets
     ↓
@@ -44,9 +89,9 @@ Historical Snapshots
     ↓
 Metadata Enrichment
     ↓
-Static Gallery Generator
+FastAPI + Gallery Generator / Public Frontend
     ↓
-GitHub Pages / Cloudflare Pages / Forge-hosted static output
+Forge / GitHub Pages / Cloudflare Pages / Static Output
 ```
 
 ## Planned Data Categories
@@ -120,6 +165,10 @@ GitHub Pages / Cloudflare Pages / Forge-hosted static output
 - Lifecycle events for openings, closures, lift changes, expansions, and ownership changes
 - Gallery navigation for collections, museums, trail maps, lost areas, and timelines
 - Coverage tracking for trail maps, aerial imagery, lift history, ownership, oral histories, and GIS readiness
+- FastAPI v2 archive endpoints
+- PostGIS-ready schema
+- JSON-to-database seed script
+- Docker Compose development stack
 
 ## Roadmap
 
@@ -137,6 +186,7 @@ GitHub Pages / Cloudflare Pages / Forge-hosted static output
 - Historical snapshot model
 - Source provenance metadata
 - Museum and archive partner tracking
+- API-backed public archive
 
 ### Phase 3
 
@@ -153,3 +203,10 @@ GitHub Pages / Cloudflare Pages / Forge-hosted static output
 - Public contribution workflows
 - Expanded geospatial visualizations
 - Historical map and aerial comparison viewer
+
+### Phase 5
+
+- Personal ski and snowboard history integration
+- Pass import workflows
+- Weather enrichment
+- Lifetime skier/rider analytics
